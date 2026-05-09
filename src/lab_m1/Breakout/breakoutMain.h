@@ -1,11 +1,11 @@
 #include "components/simple_scene.h"
 #include "utils/gl_utils.h"
-#include "lab_m1/Tema1/editor.h"
-#include "lab_m1/Tema1/breakout.h"
+#include "lab_m1/Breakout/breakoutEditor.h"
+#include "lab_m1/Breakout/breakoutGame.h"
 
 namespace m1
 {
-    class Tema1 : public gfxc::SimpleScene
+    class BreakoutMain : public gfxc::SimpleScene
     {
     public:
         struct ViewportSpace
@@ -33,8 +33,8 @@ namespace m1
         };
 
     public:
-        Tema1();
-        ~Tema1();
+        BreakoutMain();
+        ~BreakoutMain();
 
         void Init() override;
 
@@ -56,16 +56,16 @@ namespace m1
 
         void EditorUpdate();
         void GameUpdate(float deltaTimeSeconds);
-        editor::Editor editorScreen;
-        breakout::Breakout game;
+        breakoutEditor::BreakoutEditor editorScreen;
+        breakoutGame::BreakoutGame game;
 
     protected:
         float length;
         ViewportSpace viewSpace;
         LogicSpace logicSpace;
         glm::ivec2 res = window->GetResolution();
-        float unit = 40;	// the side of a 1x1 square; relative to the screen resolution
-
+        float unit = 40;	// the side of a 1x1 square
+        
         bool gameStarted = false;
 
         glm::mat3 modelMatrix;

@@ -1,6 +1,6 @@
-#include "lab_m1/Tema1/tema1.h"
-#include "lab_m1/Tema1/transform2D.h"
-#include "lab_m1/Tema1/shapes.h"
+#include "lab_m1/Breakout/breakoutMain.h"
+#include "lab_m1/Breakout/transform2D.h"
+#include "lab_m1/Breakout/shapes.h"
 
 #include <vector>
 #include <iostream>
@@ -15,17 +15,17 @@ using namespace m1;
  */
 
 
-Tema1::Tema1()
+BreakoutMain::BreakoutMain()
 {
 }
 
 
-Tema1::~Tema1()
+BreakoutMain::~BreakoutMain()
 {
 }
 
 
-void Tema1::Init()
+void BreakoutMain::Init()
 {
     auto camera = GetSceneCamera();
     camera->SetOrthographic(0, (float)res.x, 0, (float)res.y, 0.01f, 400);
@@ -50,14 +50,14 @@ void Tema1::Init()
         logicSpace.height, unit, meshes);
 }
 
-void Tema1::FrameStart()
+void BreakoutMain::FrameStart()
 {
     glLineWidth(1.0f);
     glClearColor(0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void Tema1::Update(float deltaTimeSeconds)
+void BreakoutMain::Update(float deltaTimeSeconds)
 {
     viewSpace = ViewportSpace(0, 0, res.x, res.y);
     SetViewportArea(viewSpace, glm::vec3(0, 0, 0), true);
@@ -72,7 +72,7 @@ void Tema1::Update(float deltaTimeSeconds)
     glLineWidth(1.0f);
 }
 
-void Tema1::EditorUpdate()
+void BreakoutMain::EditorUpdate()
 {
     // the selection tab on the left
     modelMatrix = glm::mat3(1);
@@ -139,7 +139,7 @@ void Tema1::EditorUpdate()
     }
 }
 
-void Tema1::GameUpdate(float deltaTimeSeconds)
+void BreakoutMain::GameUpdate(float deltaTimeSeconds)
 {
     // the upper section border
     modelMatrix = glm::mat3(1);
@@ -233,7 +233,7 @@ void Tema1::GameUpdate(float deltaTimeSeconds)
     }
 }
 
-void Tema1::SetViewportArea(const ViewportSpace& viewSpace, glm::vec3 colorColor, bool clear)
+void BreakoutMain::SetViewportArea(const ViewportSpace& viewSpace, glm::vec3 colorColor, bool clear)
 {
     glViewport(viewSpace.x, viewSpace.y, viewSpace.width, viewSpace.height);
 
@@ -249,12 +249,12 @@ void Tema1::SetViewportArea(const ViewportSpace& viewSpace, glm::vec3 colorColor
     GetSceneCamera()->Update();
 }
 
-void Tema1::FrameEnd()
+void BreakoutMain::FrameEnd()
 {
 
 }
 
-void Tema1::OnInputUpdate(float deltaTime, int mods)
+void BreakoutMain::OnInputUpdate(float deltaTime, int mods)
 {
     if (gameStarted && game.gameRunning)
     {
@@ -266,7 +266,7 @@ void Tema1::OnInputUpdate(float deltaTime, int mods)
 }
 
 
-void Tema1::OnKeyPress(int key, int mods)
+void BreakoutMain::OnKeyPress(int key, int mods)
 {
     if (gameStarted && !game.gameRunning && key == GLFW_KEY_SPACE)
     {
@@ -275,12 +275,12 @@ void Tema1::OnKeyPress(int key, int mods)
 }
 
 
-void Tema1::OnKeyRelease(int key, int mods)
+void BreakoutMain::OnKeyRelease(int key, int mods)
 {
 }
 
 
-void Tema1::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
+void BreakoutMain::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
 {
     if (!gameStarted && editorScreen.blockMoving)
     {
@@ -290,7 +290,7 @@ void Tema1::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
 }
 
 
-void Tema1::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
+void BreakoutMain::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
 {
     if (!gameStarted)
     {
@@ -316,7 +316,7 @@ void Tema1::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
 }
 
 
-void Tema1::OnMouseBtnRelease(int mouseX, int mouseY, int button, int mods)
+void BreakoutMain::OnMouseBtnRelease(int mouseX, int mouseY, int button, int mods)
 {
     if (!gameStarted && button == 1 && editorScreen.blockMoving)
     {
@@ -326,11 +326,11 @@ void Tema1::OnMouseBtnRelease(int mouseX, int mouseY, int button, int mods)
 }
 
 
-void Tema1::OnMouseScroll(int mouseX, int mouseY, int offsetX, int offsetY)
+void BreakoutMain::OnMouseScroll(int mouseX, int mouseY, int offsetX, int offsetY)
 {
 }
 
 
-void Tema1::OnWindowResize(int width, int height)
+void BreakoutMain::OnWindowResize(int width, int height)
 {
 }
