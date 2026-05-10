@@ -4,7 +4,7 @@ Author: Mara Gheorghe, Politehnica University of Bucharest
 
 This game is a modern take on the classic arcade game Breakout featuring a custom Spacecraft Editor.
 
-*This project requires the [GFX Framework](https://github.com/UPB-Graphics/gfx-framework) provided by the Computer Graphics Department at the University. All source files are part of the framework except for those in the `Breakout` folder. Folow the instructions in the framework repository to run the game.*
+*This project requires the OpenGL [GFX Framework](https://github.com/UPB-Graphics/gfx-framework) provided by the Computer Graphics Department at the University. All source files are part of the framework except for those in the `Breakout` folder. Folow the instructions in the framework repository to run the game.*
 
 
 ---
